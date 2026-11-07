@@ -1,15 +1,18 @@
 :root {
-  --ink: #0f100d;
-  --ink-2: #171914;
-  --line: #2a2d25;
-  --paper: #f1eee4;
-  --muted: #9a9a8c;
-  --acid: #d4f53c;
-  --acid-ink: #151a00;
-  --danger: #ff7a59;
+  --ink: #0b0b0f;
+  --ink-2: #15151b;
+  --line: #2e2e38;
+  --paper: #f5f3ef;
+  --muted: #9b9aa6;
+  --acid: #ff6b00;
+  --acid-2: #ffc107;
+  --gold: #ffd700;
+  --acid-ink: #1a0b00;
+  --glow: linear-gradient(135deg, #ff6b00, #ffc107);
+  --danger: #ff5a4a;
   --radius: 14px;
-  --display: "Readex Pro", system-ui, sans-serif;
-  --body: "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --display: "Plus Jakarta Sans", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --body: "IBM Plex Sans Arabic", "Plus Jakarta Sans", system-ui, sans-serif;
 }
 
 * {
@@ -24,7 +27,8 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(1200px 500px at 85% -10%, rgba(212, 245, 60, 0.12), transparent 60%),
+    radial-gradient(1200px 500px at 85% -10%, rgba(255, 107, 0, 0.18), transparent 60%),
+    radial-gradient(900px 400px at 0% 110%, rgba(255, 193, 7, 0.08), transparent 60%),
     var(--ink);
   color: var(--paper);
   font-family: var(--body);
@@ -65,8 +69,20 @@ a {
   direction: ltr;
 }
 
-.logo span {
-  color: var(--acid);
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  display: block;
+  filter: drop-shadow(0 0 12px rgba(255, 107, 0, 0.45));
+}
+
+.word {
+  font-style: italic;
+  font-weight: 800;
 }
 
 .nav {
@@ -97,8 +113,15 @@ a {
   padding: 4px 12px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  color: var(--acid);
-  font-size: 14px;
+  color: var(--paper);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  direction: ltr;
+}
+
+.kicker b {
+  color: var(--acid-2);
 }
 
 .title {
@@ -112,7 +135,10 @@ a {
 
 .title em {
   font-style: normal;
-  color: var(--acid);
+  background: var(--glow);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .lead {
@@ -135,7 +161,7 @@ a {
 
 .grab:focus-within {
   border-color: var(--acid);
-  box-shadow: 0 0 0 4px rgba(212, 245, 60, 0.12);
+  box-shadow: 0 0 0 4px rgba(255, 107, 0, 0.18);
 }
 
 .grab input {
@@ -175,12 +201,13 @@ a {
 }
 
 .go {
-  background: var(--acid);
+  background: var(--glow);
+  box-shadow: 0 8px 24px -8px rgba(255, 107, 0, 0.6);
   color: var(--acid-ink);
 }
 
 .go:hover {
-  background: #e3ff63;
+  filter: brightness(1.08);
 }
 
 .ghost {
@@ -277,6 +304,14 @@ a {
 
 .foot p {
   margin: 0;
+}
+
+.foot-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-style: italic;
+  font-weight: 800;
 }
 
 .muted {

@@ -23,7 +23,7 @@
     unavailable: ["الفيديو مش متاح", "ممكن يكون اتمسح أو مقفول في بلدك."],
     upstream_failed: ["الموقع مردش", "الموقع الأصلي رفض الطلب أو وقع. جرب كمان شوية."],
     missing_secret: ["السيرفر مش متظبط", "لسه مفتاح الأمان SECRET مش متضاف للسيرفر."],
-    network: ["مش قادرين نوصل للسيرفر", "اتأكد من النت، أو إن عنوان السيرفر في config.js صح."],
+    network: ["مش قادرين نوصل للسيرفر", "اتأكد من النت وجرب تاني. الموقع شغال بس من crstudio911.github.io."],
     not_allowed: ["الموقع ده مش مسموحله", "رابط الموقع ده مش متضاف في ALLOW على السيرفر."],
     server_error: ["حصلت مشكلة", "حاجة غلط حصلت عندنا. جرب تاني."],
   };
@@ -72,10 +72,24 @@
     }
   }
 
+  function orbit() {
+    const box = el("span", "orbit");
+    const img = el("img");
+    img.src = "../logo.png";
+    img.alt = "";
+    box.append(img);
+    return box;
+  }
+
   function showLoading() {
     state.replaceChildren();
+    const loader = el("div", "loader");
+    loader.append(orbit(), el("span", "", "بندور على الفيديو والجودات..."));
+    state.append(loader);
     const card = el("div", "card skeleton");
-    card.append(el("div", "thumb shimmer"));
+    const thumb = el("div", "thumb shimmer");
+    thumb.append(orbit());
+    card.append(thumb);
     const meta = el("div", "meta");
     meta.append(el("div", "shimmer line w60"), el("div", "shimmer line w40"), el("div", "shimmer line tall"), el("div", "shimmer line tall"));
     card.append(meta);

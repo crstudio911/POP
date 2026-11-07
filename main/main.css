@@ -36,7 +36,7 @@
   position: relative;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  background: #22251e;
+  background: #1b1b22;
   border-radius: var(--radius);
 }
 
@@ -52,7 +52,7 @@
   bottom: 10px;
   left: 10px;
   padding: 2px 8px;
-  background: rgba(15, 16, 13, 0.85);
+  background: rgba(11, 11, 15, 0.85);
   border-radius: 6px;
   font-size: 13px;
   direction: ltr;
@@ -111,7 +111,7 @@
   display: inline-flex;
   align-items: center;
   padding: 10px 18px;
-  background: var(--acid);
+  background: var(--glow);
   color: var(--acid-ink);
   border-radius: 10px;
   font-weight: 600;
@@ -120,7 +120,7 @@
 }
 
 .dl:hover {
-  background: #e3ff63;
+  filter: brightness(1.08);
 }
 
 .dl.soft {
@@ -130,6 +130,7 @@
 }
 
 .dl.soft:hover {
+  filter: none;
   border-color: var(--acid);
 }
 
@@ -144,7 +145,7 @@
 }
 
 .shimmer {
-  background: linear-gradient(90deg, #1f221b 0%, #2a2e24 50%, #1f221b 100%);
+  background: linear-gradient(90deg, #1a1a21 0%, #2a2430 45%, #33241a 55%, #1a1a21 100%);
   background-size: 200% 100%;
   animation: shimmer 1.2s infinite linear;
   border-radius: 10px;
@@ -179,7 +180,7 @@
 .error {
   padding: 28px;
   background: var(--ink-2);
-  border: 1px solid #4a2a20;
+  border: 1px solid #4a2420;
   border-radius: calc(var(--radius) + 6px);
 }
 
@@ -213,5 +214,68 @@
   .dl {
     width: 100%;
     justify-content: center;
+  }
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.orbit {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex: none;
+}
+
+.orbit img {
+  position: absolute;
+  inset: 8px;
+  width: 28px;
+  height: 28px;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+.orbit::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--acid);
+  border-right-color: var(--acid-2);
+  animation: spin 0.9s linear infinite;
+}
+
+.thumb .orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -22px 0 0 -22px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.55;
+    transform: scale(0.9);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit::before,
+  .orbit img,
+  .shimmer {
+    animation-duration: 3s;
   }
 }
