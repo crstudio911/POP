@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>POP | حمل أي فيديو برابط واحد</title>
+<meta name="description" content="الصق رابط فيديو من يوتيوب أو إنستجرام أو فيسبوك أو أي موقع، وحمله مباشرة على جهازك بدون تسجيل.">
+<meta property="og:title" content="POP | حمل أي فيديو برابط واحد">
+<meta property="og:description" content="الصق الرابط وخد الفيديو على جهازك مباشرة.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0f100d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Readex+Pro:wght@500;700&display=swap">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="one.css">
+</head>
+<body>
+<header class="bar">
+  <a class="logo" href="index.html">POP<span>.</span></a>
+  <nav class="nav">
+    <a href="#how">طريقة الاستخدام</a>
+    <a href="#sites">المواقع المدعومة</a>
+  </nav>
+</header>
+
+<main class="hero">
+  <p class="kicker">تحميل مباشر على جهازك</p>
+  <h1 class="title">الصق الرابط.<br><em>خد الفيديو.</em></h1>
+  <p class="lead">من يوتيوب أو إنستجرام أو فيسبوك أو أي صفحة فيها فيديو. من غير تسجيل، ومن غير ما الملف يتخزن عندنا.</p>
+
+  <form id="grab" class="grab" novalidate>
+    <label for="link" class="sr">رابط الفيديو</label>
+    <input id="link" name="url" type="url" inputmode="url" dir="ltr" placeholder="https://" autocomplete="off" spellcheck="false" required>
+    <button type="button" id="paste" class="btn ghost">لصق</button>
+    <button type="submit" class="btn go">ابدأ</button>
+  </form>
+  <p id="hint" class="hint" role="alert" aria-live="polite"></p>
+
+  <ul class="sites" id="sites">
+    <li>يوتيوب</li>
+    <li>إنستجرام</li>
+    <li>فيسبوك</li>
+    <li>تيك توك</li>
+    <li>أي رابط مباشر</li>
+  </ul>
+</main>
+
+<section id="how" class="steps">
+  <h2 class="steps-title">ثلاث خطوات</h2>
+  <ol class="steps-list">
+    <li><span class="num">01</span><h3>انسخ الرابط</h3><p>من التطبيق أو المتصفح، رابط الفيديو أو المنشور أو الصفحة.</p></li>
+    <li><span class="num">02</span><h3>الصقه هنا</h3><p>بنقرأ الصفحة ونطلعلك كل الجودات المتاحة.</p></li>
+    <li><span class="num">03</span><h3>اختار وحمل</h3><p>الملف بينزل على جهازك على طول، ومش بيتحفظ على أي سيرفر.</p></li>
+  </ol>
+</section>
+
+<footer class="foot">
+  <p>POP</p>
+  <p class="muted">حمل المحتوى اللي من حقك تحمله بس.</p>
+</footer>
+
+<script src="config.js"></script>
+<script src="one.js"></script>
+</body>
+</html>
