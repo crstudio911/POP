@@ -279,3 +279,15 @@
     animation-duration: 3s;
   }
 }
+
+.platform {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.platform .ic {
+  color: var(--pf, currentColor);
+  width: 1.3em;
+  height: 1.3em;
+}

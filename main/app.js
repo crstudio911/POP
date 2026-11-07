@@ -11,7 +11,21 @@
     facebook: "فيسبوك",
     tiktok: "تيك توك",
     x: "إكس",
+    vimeo: "فيميو",
+    soundcloud: "ساوند كلاود",
+    reddit: "ريديت",
     web: "موقع ويب",
+  };
+
+  const brand = {
+    youtube: "#FF0000",
+    instagram: "#E4405F",
+    facebook: "#1877F2",
+    tiktok: "#25F4EE",
+    x: "#FFFFFF",
+    vimeo: "#1AB7EA",
+    soundcloud: "#FF5500",
+    reddit: "#FF4500",
   };
 
   const errors = {
@@ -26,6 +40,9 @@
     network: ["مش قادرين نوصل للسيرفر", "اتأكد من النت وجرب تاني. الموقع شغال بس من crstudio911.github.io."],
     not_allowed: ["الموقع ده مش مسموحله", "رابط الموقع ده مش متضاف في ALLOW على السيرفر."],
     server_error: ["حصلت مشكلة", "حاجة غلط حصلت عندنا. جرب تاني."],
+    engine_down: ["محرك التحميل نايم", "المحرك بيصحى خلال دقيقة لو كان واقف. جرب تاني بعد شوية."],
+    busy: ["فيه ضغط دلوقتي", "فيه تحميلات كتير شغالة. جرب كمان دقيقة."],
+    expired: ["الرابط خلص", "روابط التحميل بتنتهي بعد 6 ساعات. الصق الرابط تاني."],
   };
 
   function el(tag, className, text) {
@@ -54,7 +71,7 @@
   }
 
   function itemTitle(item) {
-    if (item.kind === "audio") return "صوت فقط";
+    if (item.kind === "audio") return item.ext === "mp3" ? "صوت فقط MP3" : "صوت فقط";
     if (item.kind === "image") return "صورة";
     if (!item.hasAudio) return "فيديو بدون صوت";
     return "فيديو";
@@ -75,7 +92,7 @@
   function orbit() {
     const box = el("span", "orbit");
     const img = el("img");
-    img.src = "../logo.png";
+    img.src = "../img/logo.png";
     img.alt = "";
     box.append(img);
     return box;
@@ -122,7 +139,13 @@
 
     const meta = el("div", "meta");
     meta.append(el("h1", "", data.title || "بدون عنوان"));
-    meta.append(el("p", "platform", platforms[data.platform] || platforms.web));
+    const platform = el("p", "platform");
+    const pf = el("i", "ic");
+    pf.setAttribute("aria-hidden", "true");
+    pf.style.setProperty("--ic", brand[data.platform] ? "url(../img/platforms/" + data.platform + ".svg)" : "url(../img/icons/globe.svg)");
+    if (brand[data.platform]) pf.style.setProperty("--pf", brand[data.platform]);
+    platform.append(pf, document.createTextNode(platforms[data.platform] || platforms.web));
+    meta.append(platform);
 
     const list = el("ul", "list");
     data.items.forEach(function (item, index) {
@@ -132,7 +155,11 @@
       info.append(el("span", "row-title", head));
       const sub = [String(item.ext || "").toUpperCase(), formatSize(item.size)].filter(Boolean).join(" · ");
       info.append(el("span", "row-sub", sub));
-      const link = el("a", index === 0 ? "dl" : "dl soft", "تحميل");
+      const link = el("a", index === 0 ? "dl" : "dl soft");
+      const icon = el("i", "ic");
+      icon.style.setProperty("--ic", "url(../img/icons/download.svg)");
+      icon.setAttribute("aria-hidden", "true");
+      link.append(icon, document.createTextNode("تحميل"));
       link.href = item.download;
       link.rel = "noopener";
       link.setAttribute("download", "");
@@ -142,7 +169,7 @@
     meta.append(list);
 
     if (data.items.some(function (item) { return item.kind === "video" && !item.hasAudio; })) {
-      meta.append(el("p", "note", "الجودات العالية من يوتيوب بتيجي بدون صوت. حمل الصوت لوحده لو محتاجه."));
+      meta.append(el("p", "note", "الجودة دي بتيجي بدون صوت. حمل الصوت لوحده لو محتاجه."));
     }
     card.append(thumb, meta);
     state.replaceChildren(card);

@@ -13,12 +13,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,500;0,800;1,800&display=swap">
-<link rel="icon" href="favicon.png" type="image/png">
+<link rel="icon" href="img/favicon.png" type="image/png">
 <link rel="stylesheet" href="one.css">
 </head>
 <body>
 <header class="bar">
-  <a class="logo" href="index.html"><img src="logo.png" alt="" width="40" height="40"><span class="word">POP</span></a>
+  <a class="logo" href="index.html"><img src="img/logo.png" alt="" width="40" height="40"><span class="word">POP</span></a>
   <nav class="nav">
     <a href="#how">طريقة الاستخدام</a>
     <a href="#sites">المواقع المدعومة</a>
@@ -26,39 +26,43 @@
 </header>
 
 <main class="hero">
-  <p class="kicker">ALL IN ONE. <b>WITH YOU.</b></p>
+  <p class="kicker"><i class="ic" style="--ic:url(img/icons/bolt.svg)" aria-hidden="true"></i>ALL IN ONE. <b>WITH YOU.</b></p>
   <h1 class="title">الصق الرابط.<br><em>خد الفيديو.</em></h1>
-  <p class="lead">من يوتيوب أو إنستجرام أو فيسبوك أو أي صفحة فيها فيديو. من غير تسجيل، ومن غير ما الملف يتخزن عندنا.</p>
+  <p class="lead">فيديو بأعلى جودة، أو الصوت لوحده MP3، من يوتيوب وإنستجرام وفيسبوك وتيك توك وأي صفحة فيها فيديو. من غير تسجيل، ومن غير ما الملف يتخزن عندنا.</p>
 
   <form id="grab" class="grab" novalidate>
     <label for="link" class="sr">رابط الفيديو</label>
     <input id="link" name="url" type="url" inputmode="url" dir="ltr" placeholder="https://" autocomplete="off" spellcheck="false" required>
-    <button type="button" id="paste" class="btn ghost">لصق</button>
-    <button type="submit" class="btn go">ابدأ</button>
+    <button type="button" id="paste" class="btn ghost"><i class="ic" style="--ic:url(img/icons/paste.svg)" aria-hidden="true"></i>لصق</button>
+    <button type="submit" class="btn go"><i class="ic" style="--ic:url(img/icons/download.svg)" aria-hidden="true"></i>ابدأ</button>
   </form>
   <p id="hint" class="hint" role="alert" aria-live="polite"></p>
 
   <ul class="sites" id="sites">
-    <li>يوتيوب</li>
-    <li>إنستجرام</li>
-    <li>فيسبوك</li>
-    <li>تيك توك</li>
-    <li>أي رابط مباشر</li>
+    <li class="pf" style="--pf:#FF0000"><i class="ic" style="--ic:url(img/platforms/youtube.svg)" aria-hidden="true"></i>يوتيوب وشورتس</li>
+    <li class="pf" style="--pf:#E4405F"><i class="ic" style="--ic:url(img/platforms/instagram.svg)" aria-hidden="true"></i>ريلز وصور إنستجرام</li>
+    <li class="pf" style="--pf:#1877F2"><i class="ic" style="--ic:url(img/platforms/facebook.svg)" aria-hidden="true"></i>فيسبوك</li>
+    <li class="pf" style="--pf:#25F4EE"><i class="ic" style="--ic:url(img/platforms/tiktok.svg)" aria-hidden="true"></i>تيك توك</li>
+    <li class="pf" style="--pf:#FFFFFF"><i class="ic" style="--ic:url(img/platforms/x.svg)" aria-hidden="true"></i>إكس</li>
+    <li class="pf" style="--pf:#1AB7EA"><i class="ic" style="--ic:url(img/platforms/vimeo.svg)" aria-hidden="true"></i>فيميو</li>
+    <li class="pf" style="--pf:#FF5500"><i class="ic" style="--ic:url(img/platforms/soundcloud.svg)" aria-hidden="true"></i>ساوند كلاود</li>
+    <li class="pf" style="--pf:#FF4500"><i class="ic" style="--ic:url(img/platforms/reddit.svg)" aria-hidden="true"></i>ريديت</li>
+    <li><i class="ic" style="--ic:url(img/icons/globe.svg)" aria-hidden="true"></i>أي موقع فيه فيديو</li>
   </ul>
 </main>
 
 <section id="how" class="steps">
   <h2 class="steps-title">ثلاث خطوات</h2>
   <ol class="steps-list">
-    <li><span class="num">01</span><h3>انسخ الرابط</h3><p>من التطبيق أو المتصفح، رابط الفيديو أو المنشور أو الصفحة.</p></li>
-    <li><span class="num">02</span><h3>الصقه هنا</h3><p>بنقرأ الصفحة ونطلعلك كل الجودات المتاحة.</p></li>
-    <li><span class="num">03</span><h3>اختار وحمل</h3><p>الملف بينزل على جهازك على طول، ومش بيتحفظ على أي سيرفر.</p></li>
+    <li><span class="step-ic"><i class="ic" style="--ic:url(img/icons/link.svg)" aria-hidden="true"></i></span><span class="num">01</span><h3>انسخ الرابط</h3><p>من التطبيق أو المتصفح، رابط الفيديو أو المنشور أو الصفحة.</p></li>
+    <li><span class="step-ic"><i class="ic" style="--ic:url(img/icons/paste.svg)" aria-hidden="true"></i></span><span class="num">02</span><h3>الصقه هنا</h3><p>بنقرأ الصفحة ونطلعلك كل الجودات المتاحة.</p></li>
+    <li><span class="step-ic"><i class="ic" style="--ic:url(img/icons/download.svg)" aria-hidden="true"></i></span><span class="num">03</span><h3>اختار وحمل</h3><p>الملف بينزل على جهازك على طول، ومش بيتحفظ على أي سيرفر.</p></li>
   </ol>
 </section>
 
 <footer class="foot">
-  <p class="foot-brand"><img src="logo.png" alt="" width="28" height="28">POP</p>
-  <p class="muted">حمل المحتوى اللي من حقك تحمله بس.</p>
+  <p class="foot-brand"><img src="img/logo.png" alt="" width="28" height="28">POP</p>
+  <p class="muted"><i class="ic" style="--ic:url(img/icons/shield.svg)" aria-hidden="true"></i>حمل المحتوى اللي من حقك تحمله بس.</p>
 </footer>
 
 <script src="config.js"></script>
